@@ -3,16 +3,50 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="/scss/header.scss">
+	<link rel="stylesheet" href="/scss/style.scss">
 	<title>Vite App</title>
 </head>
 
 <body>
 
-	
+	<div class="container">
+		<section>
+			<header></header>
+			<main>
+				<div class="genres">
+					<h1>Сейчас в кино</h1>
+					<div></div>
+					<nav>
+						<p class="act_txt">Все</p>
+						<p>Боевики</p>
+						<p>Приключения</p>
+						<p>Комедии</p>
+						<p>Фантастика</p>
+						<p>Триллеры</p>
+						<p>Драма</p>
+					</nav>
+				</div>
 
-	<script type="module" src="/main.js"></script>
+				<div class="movies">
+					<div>
+						<div class="image">
+							<img src="/public/images/logo.svg" alt="image">
+							<span>6.70</span>
+							<button>Карточка фильма</button>
+						</div>
+						<div class="name__genre">
+							<p>Побег из Претории</p>
+							<p>Триллер</p>
+						</div>
+					</div>
+				</div>
+			</main>
+		</section>
+	</div>
+
+	<script type="module" src="/modules/main.js"></script>
 </body>
 
 </html>
