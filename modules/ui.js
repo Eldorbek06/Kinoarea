@@ -22,3 +22,25 @@ export function headerCreate(place) {
 		</div>
     `
 }
+
+
+export function reload(arr, place) {
+    place.innerHTML = ''
+    for (let item of arr) {
+        place.innerHTML += `
+            <div class="movie-card" >
+                <div class="image">
+                    <img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
+                    <span>${item.vote_average}</span>
+					<a href="/pages/movieid.html?id=${item.id}">
+                    	<button>Карточка фильма</button>
+					</a>
+                </div>
+                <div class="name__genre">
+                    <p>${item.title}</p>
+                    <p>${item.genre_ids}</p>
+                </div>
+            </div>
+            `
+    }
+}

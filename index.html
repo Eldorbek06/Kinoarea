@@ -3,38 +3,35 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="/scss/header.scss">
 	<link rel="stylesheet" href="/scss/style.scss">
-	<title>Kinoarea</title>
+	<link rel="stylesheet" href="/scss/header.scss">
+	<title>Vite App</title>
 </head>
 
 <body>
+	<header></header>
+	<main>
+		<div class="genres">
+			<h1>Сейчас в кино</h1>
+			<div></div>
+			<nav>
+				<p class="act_txt">Все</p>
+				<p>Боевики</p>
+				<p>Приключения</p>
+				<p>Комедии</p>
+				<p>Фантастика</p>
+				<p>Триллеры</p>
+				<p>Драма</p>
+			</nav>
+		</div>
+		<div class="movies"></div>
+	</main>
+	<footer></footer>
 
-	<div class="container">
-		<section>
-			<header></header>
-			<main>
-				<div class="genres">
-					<h1>Сейчас в кино</h1>
-					<div></div>
-					<nav>
-						<p class="act_txt">Все</p>
-						<p>Боевики</p>
-						<p>Приключения</p>
-						<p>Комедии</p>
-						<p>Фантастика</p>
-						<p>Триллеры</p>
-						<p>Драма</p>
-					</nav>
-				</div>
 
-				<div class="movies"></div>
-			</main>
-		</section>
-	</div>
-
-	<script type="module" src="/modules/main.js"></script>
+	<script type="module" src="modules/main.js"></script>
 </body>
 
 </html>
