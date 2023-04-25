@@ -1,24 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/scss/style.scss">
     <link rel="stylesheet" href="/scss/header.scss">
+    <link rel="stylesheet" href="/scss/movieid.scss">
     <title>Document</title>
 </head>
+
 <body>
 
     <header></header>
     <main>
 
-        <iframe width="400" height="720" src="https://www.youtube.com/embed/aeBsl8feQao?list=RDaeBsl8feQao"></iframe>
-            
+        <section class="first-section">
+            <div class="first-section__header">
+                <div class="first-section__wrapper">
+                    <div class="first-section__header-left">
+                        <img class="first-section__poster" src="/public/images/logo.svg" alt="image">
+                    </div>
+                    <div class="first-section__header-right">
+                        <div class="first-section__location">
+                            <span class="first-section__location-item">
+                                Главная >
+                            </span>
+                            <span class="first-section__location-item">
+                                Фильмы >
+                            </span>
+                            <span class="first-section__location-item first-section__location-item_active">
+                                Побег из Претории
+                            </span>
+                        </div>
+                        <div class="first-section__title">Побег из Претории</div>
+                        <div class="first-section__sub-title">Escape from Pretoria</div>
+                        <div class="first-section__txt">
+                            Двое борцов за свободу отбывают срок в одной из самых строгих тюрем мира — в «Претории». Вместе
+                            с другими узниками они планируют дерзкий и опасный побег. Но придумать план — это только первый
+                            шаг. Шаг второй — реализация плана.
+                        </div>
+                        <div class="first-section__actions">
+                            <div class="first-section__actions-btn">Смотреть трейлер</div>
+                            <img class="first-section__actions-share" src="/public/images/menu.svg" alt="image">
+                            <img class="first-section__actions-share" src="/public/icons/menu_icon.svg" alt="image">
+                        </div>
+                    </div>
+                </div>
+                <div class="first-section__header-bottom">
+                    <img class="first-section__header-bottom-icon" src="/public/icons/like.svg" alt="icon">
+                    <img class="first-section__header-bottom-icon first-section__header-bottom-icon_dislike" src="/public/icons/like.svg" alt="icon">
+                    <div class="first-section__header-bottom-rating">Рейтинг ожиданий 85%</div>
+                    <img class="first-section__header-bottom-icon" src="/public/icons/favorite.svg" alt="icon"></img>
+                    <div class="first-section__header-bottom-txt">В избранном у 37933 человек </div>
+                </div>
+            </div>
+            <div class="first-section__main"></div>
+            <div class="first-section__footer"></div>
+        </section>
 
     </main>
     <footer></footer>
-    
+
     <script type="module" src="/modules/movieid.js"></script>
 </body>
+
 </html>
