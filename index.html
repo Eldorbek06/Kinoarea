@@ -5,6 +5,7 @@
 	<meta charset="UTF-8" />
 	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="/scss/style.scss">
 	<link rel="stylesheet" href="/scss/header.scss">
 	<title>Kinoarea</title>
@@ -33,38 +34,91 @@
 
 		<section class="trailers">
 			<div class="trailers__header header">
-				<h1 class="trailers__title trailers__title_big"></h1>
+				<h1 class="trailers__title trailers__title_big">Новые трейлеры</h1>
 				<a href="#" class="trailers__more">
-					<p class="trailers__more-txt"></p>
+					<p class="trailers__more-txt">Все трейлеры</p>
 					<img class="trailers__more-icon" src="/public/icons/arrow.svg" alt="icon">
 				</a>
 			</div>
 			<div class="trailers__main">
 				<div class="trailers__vid trailers__vid_big">
-					<iframe src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+					<iframe class="trailers__iframe trailers__iframe_big"
+						src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
 					<img class="trailers_play-icon" src="/public/icons/play.svg" alt="icon">
 				</div>
 				<div class="trailers__actions">
-					<h1 class="trailers__title trailers__title_medium"></h1>
 					<div class="trailers__share">
+						<h1 class="trailers__title trailers__title_medium">Форсаж 9</h1>
 						<img class="trailers__share-img" src="/public/images/menu.svg" alt="image">
 						<img class="trailers__share-icon" src="/public/icons/menu_icon.svg" alt="icon">
 					</div>
-					<div class="trailers__actions-item trailers__actions-item_like">
-						<img src="/public/icons/like.svg" alt="icon" class="trailers__actions-item-icon-like">
-						<div class="trailers__actions-item-txt"></div>
+					<div class="trailers__actions-items">
+						<div class="trailers__actions-item trailers__actions-item_like">
+							<img src="/public/icons/like.svg" alt="icon" class="trailers__actions-item-icon-like">
+							<div class="trailers__actions-item-txt">3 245</div>
+						</div>
+						<div class="trailers__actions-item trailers__actions-item_dislike">
+							<img src="/public/icons/like.svg" alt="icon" class="trailers__actions-item-icon-dislike">
+							<div class="trailers__actions-item-txt">420</div>
+						</div>
 					</div>
-					<div class="trailers__actions-item trailers__actions-item_dislike">
-						<img src="/public/icons/like.svg" alt="icon" class="trailers__actions-item-icon-dislike">
-						<div class="trailers__actions-item-txt"></div>
+				</div>
+			</div>
+			<div class="trailers__footer">
+				<div class="trailers__footer-item">
+					<div class="trailers__vid trailers__vid_mini">
+						<iframe class="trailers__iframe trailers__iframe_small"
+							src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+						<img class="trailers_play-icon trailers_play-icon_mini" src="/public/icons/play.svg" alt="icon">
 					</div>
+					<p class="trailers__title trailers__title_small">Мулан</p>
+				</div>
+				<div class="trailers__footer-item">
+					<div class="trailers__vid trailers__vid_mini">
+						<iframe class="trailers__iframe trailers__iframe_small"
+							src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+						<img class="trailers_play-icon trailers_play-icon_mini" src="/public/icons/play.svg" alt="icon">
+					</div>
+					<p class="trailers__title trailers__title_small">Мулан</p>
+				</div>
+				<div class="trailers__footer-item">
+					<div class="trailers__vid trailers__vid_mini">
+						<iframe class="trailers__iframe trailers__iframe_small"
+							src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+						<img class="trailers_play-icon trailers_play-icon_mini" src="/public/icons/play.svg" alt="icon">
+					</div>
+					<p class="trailers__title trailers__title_small">Мулан</p>
+				</div>
+				<div class="trailers__footer-item">
+					<div class="trailers__vid trailers__vid_mini">
+						<iframe class="trailers__iframe trailers__iframe_small"
+							src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+						<img class="trailers_play-icon trailers_play-icon_mini" src="/public/icons/play.svg" alt="icon">
+					</div>
+					<p class="trailers__title trailers__title_small">Мулан</p>
+				</div>
+				<div class="trailers__footer-item">
+					<div class="trailers__vid trailers__vid_mini">
+						<iframe class="trailers__iframe trailers__iframe_small"
+							src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+						<img class="trailers_play-icon trailers_play-icon_mini" src="/public/icons/play.svg" alt="icon">
+					</div>
+					<p class="trailers__title trailers__title_small">Мулан</p>
+				</div>
+				<div class="trailers__footer-item">
+					<div class="trailers__vid trailers__vid_mini">
+						<iframe class="trailers__iframe trailers__iframe_small"
+							src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+						<img class="trailers_play-icon trailers_play-icon_mini" src="/public/icons/play.svg" alt="icon">
+					</div>
+					<p class="trailers__title trailers__title_small">Мулан</p>
 				</div>
 			</div>
 		</section>
 	</main>
 	<footer></footer>
 
-
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 	<script type="module" src="modules/main.js"></script>
 </body>
 

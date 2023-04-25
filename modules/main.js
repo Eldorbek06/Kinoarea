@@ -27,4 +27,3 @@ getData('/movie/popular')
             }
         }
     })
-

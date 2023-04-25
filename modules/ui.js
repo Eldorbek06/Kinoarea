@@ -2,8 +2,10 @@ export function headerCreate(place) {
 	place.innerHTML = ''
 	place.innerHTML = `
 		<div class="left">
-			<img src="/public/images/logo.svg" alt="image">
-			<img src="/public/icons/menu.svg" alt="image">
+			<a href='/'>
+				<img src="/public/images/logo.svg" alt="image">
+			</a>
+			<img src="/public/images/menu.svg" alt="image">
 		</div>
 		<nav>
 			<a href="#">Афиша</a>
@@ -25,9 +27,9 @@ export function headerCreate(place) {
 
 
 export function reload(arr, place) {
-    place.innerHTML = ''
-    for (let item of arr) {
-        place.innerHTML += `
+	place.innerHTML = ''
+	for (let item of arr) {
+		place.innerHTML += `
             <div class="movie-card" >
                 <div class="image">
                     <img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
@@ -42,5 +44,5 @@ export function reload(arr, place) {
                 </div>
             </div>
             `
-    }
+	}
 }
