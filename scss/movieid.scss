@@ -21,9 +21,9 @@
     }
 
     &__header-left {
-        background-color: red;
-        width: 33.47%;
-        padding-top: 50%;
+        width: 30%;
+        height: 0;
+        padding-top: 40%;
         position: relative;
     }
 
@@ -125,18 +125,18 @@
         line-height: 17px;
         color: #57D043;
         position: relative;
+        z-index: 2;
+    }
 
-        &::after {
-            content: '';
-            display: block;
-            background: #2E612590;
-            border-radius: 5px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 85%;
-            height: 100%;
-        }
+    &__header-bottom-rating-bg {
+        background: #2E612590;
+        border-radius: 5px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 85%;
+        height: 100%;
+        z-index: 1;
     }
 
     &__header-bottom-txt {
@@ -181,16 +181,15 @@
     }
 
     &__key {
-        width: 25%;
+        white-space: nowrap;
     }
 
     &__value {
-        text-decoration: underline;
         color: #F2F60F;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 75%;
+        width: 70%;
     }
 
     &__footer {}
