@@ -1,10 +1,12 @@
 import { getData } from './http';
-import { headerCreate, reload, reloadTrailerCart } from "./ui";
+import { headerCreate, reload, reloadPopularPerson, reloadTrailerCart } from "./ui";
 let body = document.body
 let header = document.querySelector('header')
 let movies_cont = document.querySelector('.movies')
 let first_section_moreBtn = document.querySelector('.first-section .more')
 let trailers__footer = document.querySelector('.trailers__footer')
+let popular_person_cont = document.querySelector('.popular_person_cont')
+let popular_person_cart_cont = document.querySelector('.popular-persons__list')
 
 headerCreate(header)
 
@@ -45,4 +47,10 @@ getData('/movie/popular')
             }
         })
 
+    })
+
+getData('/person/popular')
+    .then(({data}) => {
+        reloadPopularPerson(data.results.slice(0,2), popular_person_cont)
+        reloadPopularPerson(data.results.slice(2), popular_person_cart_cont)
     })

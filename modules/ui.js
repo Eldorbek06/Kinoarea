@@ -61,3 +61,35 @@ export function reloadTrailerCart(arr, place) {
 		`
 	}
 }
+
+export function reloadPopularPerson(arr, place) {
+	place.innerHTML = ''
+	if (arr.length === 2) {
+		for (let item of arr) {
+			place.innerHTML += `
+			<div class="popular-persons__box">
+				<img class="popular-persons__photo" src="${import.meta.env.VITE_BASE_IMG + item.profile_path}" alt="image">
+				<div class="popular-persons__num">${arr.indexOf(item) + 1}-е место</div>
+				<div class="popular-persons__box-item">
+					<div class="popular-persons__name">${item.name}</div>
+					<div class="popular-persons__name_eng">${item.name}</div>
+					<div class="popular-persons__age">${item.age}</div>
+				</div>
+			</div>
+			`
+		}
+	} else {
+		for (let item of arr) {
+			place.innerHTML += `
+		<div class="popular-persons__cart">
+			<div class="popular-persons__cart-item">
+				<div class="popular-persons__name">${item.name}</div>
+				<div class="popular-persons__name_eng">${item.name}</div>
+				<div class="popular-persons__age">${item.age}</div>
+			</div>
+			<div class="popular-persons__num">${arr.indexOf(item) + 3}-е место</div>
+		</div>
+		`
+		}
+	}
+}
