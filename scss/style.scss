@@ -131,13 +131,13 @@ main {
         top: 50%;
         left: 50%;
         translate: -50% -50%;
-        visibility: hidden;
-        opacity: 0;
         transition: .3s;
         z-index: 10;
+        display: none;
 
         &_mini {
             width: 35px;
+            display: block;
         }
     }
 
@@ -232,6 +232,8 @@ main {
 
         &_small {
             border-radius: 10px;
+            object-fit: cover;
+            object-position: center;
         }
     }
 

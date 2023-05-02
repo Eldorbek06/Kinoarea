@@ -47,17 +47,16 @@ export function reload(arr, place) {
 	}
 }
 
-export function reloadTrailerCart(arr, place){
+export function reloadTrailerCart(arr, place) {
 	place.innerHTML = ''
-	for(let item of arr){
-		place.innerHTML = `
-		<div class="trailers__footer-item">
+	for (let item of arr) {
+		place.innerHTML += `
+		<div class="trailers__footer-item" data-id='${item.id}'>
 			<div class="trailers__vid trailers__vid_mini">
-				<iframe class="trailers__iframe trailers__iframe_small"
-					src="https://www.youtube.com/embed/HihYQVuH64U" frameborder="0" allowfullscreen></iframe>
+				<img class="trailers__iframe trailers__iframe_small" src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt='image'>
 				<img class="trailers_play-icon trailers_play-icon_mini" src="/public/icons/play.svg" alt="icon">
 			</div>
-			<p class="trailers__title trailers__title_small">Мулан</p>
+			<p class="trailers__title trailers__title_small">${item.title.split('.').at(0)}</p>
 		</div>
 		`
 	}

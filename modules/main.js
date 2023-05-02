@@ -1,10 +1,10 @@
 import { getData } from './http';
-import { headerCreate, reload } from "./ui";
+import { headerCreate, reload, reloadTrailerCart } from "./ui";
 let body = document.body
 let header = document.querySelector('header')
 let movies_cont = document.querySelector('.movies')
 let first_section_moreBtn = document.querySelector('.first-section .more')
-
+let trailers__footer = document.querySelector('.trailers__footer')
 
 headerCreate(header)
 
@@ -26,4 +26,23 @@ getData('/movie/popular')
                 item.innerHTML = 'Все новинки'
             }
         }
+        reloadTrailerCart(res.data.results, trailers__footer)
+
+        let trailers__footer_items = document.querySelectorAll('.trailers__footer-item')
+        let trailers__iframe_big = document.querySelector('.trailers__iframe_big')
+        trailers__footer_items.forEach((el, idx) => {
+            if (idx === 0) {
+                getData(`/movie/${el.dataset.id}/videos`)
+                    .then(({ data }) => {
+                        trailers__iframe_big.src = `https://www.youtube.com/embed/${data.results[0].key}`
+                    })
+            }
+            el.onclick = () => {
+                getData(`/movie/${el.dataset.id}/videos`)
+                    .then(({ data }) => {
+                        trailers__iframe_big.src = `https://www.youtube.com/embed/${data.results[0].key}`
+                    })
+            }
+        })
+
     })
