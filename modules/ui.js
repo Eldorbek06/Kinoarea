@@ -1,3 +1,5 @@
+import { getData } from './http';
+
 export function headerCreate(place) {
 	place.innerHTML = ''
 	place.innerHTML = `
@@ -25,25 +27,37 @@ export function headerCreate(place) {
     `
 }
 
+let genres
+
+getData('/genre/movie/list')
+	.then(({ data }) => genres = data.genres)
 
 export function reload(arr, place) {
 	place.innerHTML = ''
 	for (let item of arr) {
+		let genre_str = ''
+		for (let genre of genres) {
+			for (let id of item.genre_ids) {
+				if(id === genre.id){
+					genre_str += ` ${genre.name},`
+				}
+			}
+		}
 		place.innerHTML += `
-            <div class="movie-card" >
-                <div class="image">
-                    <img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
-                    <span>${item.vote_average}</span>
+			<div class="movie-card" >
+				<div class="image">
+					<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
+					<span>${item.vote_average}</span>
 					<a href="/pages/movieid.html?id=${item.id}">
-                    	<button>Карточка фильма</button>
+						<button>Карточка фильма</button>
 					</a>
-                </div>
-                <div class="name__genre">
-                    <p>${item.title}</p>
-                    <p>${item.genre_ids}</p>
-                </div>
-            </div>
-            `
+				</div>
+				<div class="name__genre">
+					<p>${item.title}</p>
+					<p>${genre_str}</p>
+				</div>
+			</div>
+			`
 	}
 }
 
