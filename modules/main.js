@@ -48,34 +48,8 @@ getData('/movie/popular')
             }
         })
 
-        reload(res.data.results, popular_moviesCont)
-        let popular_movies_prev = document.querySelector('.popular-movies__slider-prev')
-        let popular_movies_next = document.querySelector('.popular-movies__slider-next')
-        let popular_movies_fraction = document.querySelector('.popular-movies__slider-fraction')
-        let scroll_num = popular_moviesCont.firstElementChild.getBoundingClientRect().width
-        let curr = popular_movies_fraction.firstElementChild
-        let total = popular_movies_fraction.lastElementChild
-        let curr_num = 4
-        let total_num = res.data.results.length++
-        curr.innerHTML = curr_num
-        total.innerHTML = total_num
-
-        popular_movies_next.onclick = () => {
-            if (curr_num !== total_num) {
-                popular_moviesCont.scrollLeft += scroll_num * 4
-                curr_num = curr_num + 4
-                curr.innerHTML = curr_num
-            }
-        }
-        popular_movies_prev.onclick = () => {
-            if (curr_num !== 4) {
-                popular_moviesCont.scrollLeft -= scroll_num * 4
-                curr_num = curr_num - 4
-                curr.innerHTML = curr_num
-            }
-        }
-
-        // console.log();
+        let keyClass = popular_moviesCont.parentElement.className.split('_').at(0)
+        sliderAct(res.data.results, popular_moviesCont, keyClass)
     })
 
 getData('/person/popular')
@@ -83,3 +57,41 @@ getData('/person/popular')
         reloadPopularPerson(data.results.slice(0, 2), popular_person_cont)
         reloadPopularPerson(data.results.slice(2), popular_person_cart_cont)
     })
+
+getData('/movie/upcoming')
+    .then(({ data }) => {
+        let upcoming_slider_cont = document.querySelector('.upcoming__slider-container')
+        let keyClass = upcoming_slider_cont.parentElement.className.split('_').at(0)
+        sliderAct(data.results, upcoming_slider_cont, keyClass)
+    })
+
+
+
+function sliderAct(data, place, place_className) {
+    reload(data, place)
+    let slider_prev = document.querySelector(`.${place_className}__slider-prev`)
+    let slider_next = document.querySelector(`.${place_className}__slider-next`)
+    let slider_fraction = document.querySelector(`.${place_className}__slider-fraction`)
+    let scroll_num = place.firstElementChild.getBoundingClientRect().width
+    let curr = slider_fraction.firstElementChild
+    let total = slider_fraction.lastElementChild
+    let curr_num = 4
+    let total_num = data.length++
+    curr.innerHTML = curr_num
+    total.innerHTML = total_num
+
+    slider_next.onclick = () => {
+        if (curr_num !== total_num) {
+            place.scrollLeft += scroll_num * 4
+            curr_num = curr_num + 4
+            curr.innerHTML = curr_num
+        }
+    }
+    slider_prev.onclick = () => {
+        if (curr_num !== 4) {
+            place.scrollLeft -= scroll_num * 4
+            curr_num = curr_num - 4
+            curr.innerHTML = curr_num
+        }
+    }
+}

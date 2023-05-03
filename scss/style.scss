@@ -613,7 +613,7 @@ main {
         transition: .2s;
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             color: #FFFFFF;
         }
 
@@ -622,70 +622,86 @@ main {
         }
     }
 
-    &__slider {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 54px;
-    }
-
-    &__slider-container {
-        display: flex;
-        height: 520px;
-        width: 100%;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        transition: .3s;
-        
-        .movie-card {
-            min-width: 25%;
-
-            &:not(:first-child) {
-                padding-left: 20px;
-            }
-        }
-
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
     &__slider-btns {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        height: 45px;
-    }
-
-    &__slider-next {
-        rotate: 90deg;
-        height: 100%;
-        cursor: pointer;
-        transition: .2s;
-
-        &:hover {
-            scale: 1.2;
-        }
-    }
-
-    &__slider-fraction {
-        font-weight: 500;
-        font-size: 20px;
-    }
-
-    &__slider-prev {
-        rotate: -90deg;
-        height: 100%;
-        cursor: pointer;
-        transition: .2s;
-
-        &:hover {
-            scale: 1.2;
-        }
+        width: fit-content;
+        margin: 54px auto;
     }
 }
 
+.upcoming {
+    margin-top: 130px;
+    color: white;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+
+    &__title {
+        font-weight: 900;
+        font-size: 65px;
+    }
+}
 
 footer {
     min-height: 50px;
+}
+
+.slider {}
+
+.slider-container {
+    display: flex;
+    height: 520px;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    transition: .3s;
+
+    .movie-card {
+        min-width: 25%;
+
+        &:not(:first-child) {
+            padding-left: 20px;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.slider-btns {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 45px;
+}
+
+.slider-next {
+    rotate: 90deg;
+    height: 100%;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+        scale: 1.2;
+    }
+}
+
+.slider-fraction {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.slider-prev {
+    rotate: -90deg;
+    height: 100%;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+        scale: 1.2;
+    }
 }
