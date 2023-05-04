@@ -19,10 +19,10 @@ export function headerCreate(place) {
 			<a href="#">Категории</a>
 		</nav>
 		<div class="right">
-			<button>
+			<button data-popup="search">
 				<img src="/public/icons/search.svg" alt="icon">
 			</button>
-			<button>Войти</button>
+			<button data-popup="sign-in">Войти</button>
 		</div>
     `
 }
@@ -38,26 +38,64 @@ export function reload(arr, place) {
 		let genre_str = ''
 		for (let genre of genres) {
 			for (let id of item.genre_ids) {
-				if(id === genre.id){
+				if (id === genre.id) {
 					genre_str += ` ${genre.name},`
 				}
 			}
 		}
-		place.innerHTML += `
-			<div class="movie-card" >
-				<div class="image">
-					<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
-					<span>${item.vote_average}</span>
-					<a href="/pages/movieid.html?id=${item.id}">
-						<button>Карточка фильма</button>
-					</a>
-				</div>
-				<div class="name__genre">
-					<p>${item.title}</p>
-					<p>${genre_str}</p>
-				</div>
-			</div>
+		if (place.classList.contains('popup__search-wrapper_movie')) {
+			place.innerHTML = `
+				<div class="popup__search-wrapper-title">Фильмы</div>
 			`
+			place.innerHTML += `
+				<a href="/pages/movieid.html?id=${item.id}">
+					<div class="movie-card">
+						<div class="image">
+							<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
+						</div>
+						<div class="name__genre">
+							<p>${item.title}</p>
+							<p>${genre_str}</p>
+						</div>
+						<span>${item.vote_average}</span>
+					</div>
+				</a>
+			`
+		} else if (place.classList.contains('popup__search-wrapper_person')) {
+			place.innerHTML = `
+				<div class="popup__search-wrapper-title">Персоны</div>
+			`
+			place.innerHTML += `
+				<a href="/pages/movieid.html?id=${item.id}">
+					<div class="movie-card">
+						<div class="image">
+							<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
+						</div>
+						<div class="name__genre">
+							<p>${item.title}</p>
+							<p>${genre_str}</p>
+						</div>
+						<span>${item.vote_average}</span>
+					</div>
+				</a>
+			`
+		} else {
+			place.innerHTML += `
+				<div class="movie-card" >
+					<div class="image">
+						<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
+						<span>${item.vote_average}</span>
+						<a href="/pages/movieid.html?id=${item.id}">
+							<button>Карточка фильма</button>
+						</a>
+					</div>
+					<div class="name__genre">
+						<p>${item.title}</p>
+						<p>${genre_str}</p>
+					</div>
+				</div>
+			`
+		}
 	}
 }
 
@@ -95,15 +133,15 @@ export function reloadPopularPerson(arr, place) {
 	} else {
 		for (let item of arr) {
 			place.innerHTML += `
-		<div class="popular-persons__cart">
-			<div class="popular-persons__cart-item">
-				<div class="popular-persons__name">${item.name}</div>
-				<div class="popular-persons__name_eng">${item.name}</div>
-				<div class="popular-persons__age">${item.age}</div>
-			</div>
-			<div class="popular-persons__num">${arr.indexOf(item) + 3}-е место</div>
-		</div>
-		`
+				<div class="popular-persons__cart">
+					<div class="popular-persons__cart-item">
+						<div class="popular-persons__name">${item.name}</div>
+						<div class="popular-persons__name_eng">${item.name}</div>
+						<div class="popular-persons__age">${item.age}</div>
+					</div>
+					<div class="popular-persons__num">${arr.indexOf(item) + 3}-е место</div>
+				</div>
+			`
 		}
 	}
 }

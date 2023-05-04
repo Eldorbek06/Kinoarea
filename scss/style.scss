@@ -268,10 +268,6 @@ main {
         flex-direction: column;
         gap: 8px;
         align-items: center;
-
-        &_like {}
-
-        &_dislike {}
     }
 
     &__actions-item-icon-like {
@@ -401,19 +397,20 @@ main {
             height: 100%;
         }
 
-        span {
-            padding: 5px 13px;
-            background-color: #89CB36;
-            border: 1px solid #89CB36;
-            border-radius: 5px;
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 5;
-        }
+
+    }
+
+    span {
+        padding: 5px 13px;
+        background-color: #89CB36;
+        border: 1px solid #89CB36;
+        border-radius: 5px;
+        color: white;
+        font-weight: 700;
+        font-size: 18px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 
     .name__genre {
@@ -648,8 +645,6 @@ main {
 footer {
     min-height: 50px;
 }
-
-.slider {}
 
 .slider-container {
     display: flex;

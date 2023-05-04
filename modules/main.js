@@ -1,5 +1,6 @@
 import { getData } from './http';
 import { headerCreate, reload, reloadPopularPerson, reloadTrailerCart } from "./ui";
+import { modalToggle, reloadPopup } from './popup'
 let body = document.body
 let header = document.querySelector('header')
 let movies_cont = document.querySelector('.movies')
@@ -10,6 +11,7 @@ let popular_person_cart_cont = document.querySelector('.popular-persons__list')
 let popular_moviesCont = document.querySelector('.popular-movies__slider-container')
 
 headerCreate(header)
+reloadPopup(document.body)
 
 getData('/movie/popular')
     .then(res => {
@@ -64,6 +66,18 @@ getData('/movie/upcoming')
         let keyClass = upcoming_slider_cont.parentElement.className.split('_').at(0)
         sliderAct(data.results, upcoming_slider_cont, keyClass)
     })
+
+
+
+let search_btn = document.querySelector('header .right').firstElementChild
+let sign_in = document.querySelector('header .right').lastElementChild
+let close_btns = document.querySelectorAll('[data-popup_close]')
+
+
+close_btns.forEach(el => el.onclick = () => modalToggle())
+sign_in.onclick = () => modalToggle(sign_in.dataset.popup)
+search_btn.onclick = () => modalToggle(search_btn.dataset.popup)
+
 
 
 
