@@ -4,6 +4,7 @@ export function modalToggle(which) {
     if (popup.classList.contains('visible')) {
         popup.classList.remove('visible')
         popup.firstElementChild.classList.remove('visible')
+		inners.forEach(el => el.classList.remove('visible'))
     } else {
         popup.classList.add('visible')
         popup.firstElementChild.classList.add('visible')
@@ -22,8 +23,7 @@ export function modalToggle(which) {
 
 export function reloadPopup(place) {
     place.innerHTML += `
-    <div class="popup">
-		<div class="popup__body">
+	<div class="popup__body">
 			<div class="popup__close-area" data-popup_close></div>
 			<div class="popup__content">
 				<div class="popup__inner" data-popup="search">
@@ -117,7 +117,5 @@ export function reloadPopup(place) {
 				</div>
 			</div>
 		</div>
-	</div>
     `
-
 }

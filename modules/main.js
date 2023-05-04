@@ -11,7 +11,7 @@ let popular_person_cart_cont = document.querySelector('.popular-persons__list')
 let popular_moviesCont = document.querySelector('.popular-movies__slider-container')
 
 headerCreate(header)
-reloadPopup(document.body)
+reloadPopup(document.querySelector('.popup'))
 
 getData('/movie/popular')
     .then(res => {
