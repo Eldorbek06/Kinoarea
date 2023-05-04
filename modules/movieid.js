@@ -3,6 +3,25 @@ import { getData } from "./http";
 let header = document.querySelector('header')
 let body = document.body
 let movie_id = location.search.split('=').at(-1)
+let fav_icon = document.querySelector('.first-section__header-bottom-icon_heart')
+let fav_arr = JSON.parse(localStorage.getItem('fav_movies')) || []
+
+if (fav_arr.includes(movie_id)) {
+    fav_icon.classList.add('liked')
+} else {
+    fav_icon.classList.remove('liked')
+}
+
+fav_icon.onclick = () => {
+    if (fav_arr.includes(movie_id)) {
+        fav_arr = fav_arr.filter(id => id !== movie_id)
+        fav_icon.classList.remove('liked')
+    } else {
+        fav_arr.push(movie_id)
+        fav_icon.classList.add('liked')
+    }
+    localStorage.setItem('fav_movies', JSON.stringify(fav_arr))
+}
 
 headerCreate(header)
 
@@ -82,8 +101,6 @@ getData(`/movie/${movie_id}`)
 
         rating.lastElementChild.style.width = `${rating_view}%`
         poster.src = import.meta.env.VITE_BASE_IMG + data.poster_path
-
-        console.log(data);
     })
 
 

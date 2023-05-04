@@ -17,6 +17,7 @@ export function headerCreate(place) {
 			<a href="#">Новости</a>
 			<a href="#">Подборки</a>
 			<a href="#">Категории</a>
+			<a href="/pages/liked.html">Избранное</a>
 		</nav>
 		<div class="right">
 			<button data-popup="search">
