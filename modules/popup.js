@@ -14,8 +14,6 @@ export function modalToggle(which) {
         for (let item of inners) {
             if (item.dataset.popup === which) {
                 item.classList.add('visible')
-            } else {
-                item.classList.remove('visible')
             }
         }
     }

@@ -1,5 +1,6 @@
 import { createtoUpBtn, headerCreate } from "./ui";
 import { getData } from "./http";
+import { modalToggleActivate } from "./main";
 let header = document.querySelector('header')
 let body = document.body
 let movie_id = location.search.split('=').at(-1)
@@ -25,11 +26,7 @@ fav_icon.onclick = () => {
 
 headerCreate(header)
 createtoUpBtn(document.querySelector('.toUpBtnCont'))
-
-getData('/movie/popular')
-    .then(res => {
-        // console.log(res);
-    })
+modalToggleActivate()
 
 
 getData(`/movie/${movie_id}`)

@@ -68,17 +68,18 @@ getData('/movie/upcoming')
         sliderAct(data.results, upcoming_slider_cont, keyClass)
     })
 
+modalToggleActivate()
+
+export function modalToggleActivate() {
+    let search_btn = document.querySelector('header .right').firstElementChild
+    let sign_in = document.querySelector('header .right').lastElementChild
+    let close_btns = document.querySelectorAll('[data-popup_close]')
 
 
-let search_btn = document.querySelector('header .right').firstElementChild
-let sign_in = document.querySelector('header .right').lastElementChild
-let close_btns = document.querySelectorAll('[data-popup_close]')
-
-
-close_btns.forEach(el => el.onclick = () => modalToggle())
-sign_in.onclick = () => modalToggle(sign_in.dataset.popup)
-search_btn.onclick = () => modalToggle(search_btn.dataset.popup)
-
+    close_btns.forEach(el => el.onclick = () => modalToggle())
+    sign_in.onclick = () => modalToggle(sign_in.dataset.popup)
+    search_btn.onclick = () => modalToggle(search_btn.dataset.popup)
+}
 
 function sliderAct(data, place, place_className) {
     reload(data, place)
