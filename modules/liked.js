@@ -1,5 +1,5 @@
 import { getData } from "./http";
-import { headerCreate, reload } from "./ui";
+import { createtoUpBtn, headerCreate, reload } from "./ui";
 import { modalToggle, reloadPopup } from './popup'
 
 let liked_arr = JSON.parse(localStorage.getItem('fav_movies')) || []
@@ -9,6 +9,7 @@ let show_more_btn = document.querySelector('.more')
 
 headerCreate(header_cont)
 reloadPopup(document.querySelector('.popup'))
+createtoUpBtn(document.querySelector('.toUpBtnCont'))
 
 getData('/movie/popular')
     .then(({ data }) => {

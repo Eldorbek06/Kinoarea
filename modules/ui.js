@@ -26,10 +26,18 @@ export function headerCreate(place) {
 			<button data-popup="sign-in">Войти</button>
 		</div>
 		<div class="popup"></div>
+		<div class="toUpBtnCont"></div>
     `
 }
 
-
+export function createtoUpBtn(place) {
+	place.innerHTML += `
+	<button class="toUpBtn">
+	<img class="toUpBtn__icon" src="/public/icons/arrow.svg" alt="icon">
+	</button>
+    `
+	document.querySelector('.toUpBtn').onclick = () => document.documentElement.scrollTop = 0
+}
 
 let genres
 

@@ -1,5 +1,5 @@
 import { getData } from './http';
-import { headerCreate, reload, reloadPopularPerson, reloadTrailerCart } from "./ui";
+import { createtoUpBtn, headerCreate, reload, reloadPopularPerson, reloadTrailerCart } from "./ui";
 import { modalToggle, reloadPopup } from './popup'
 let body = document.body
 let header = document.querySelector('header')
@@ -12,6 +12,7 @@ let popular_moviesCont = document.querySelector('.popular-movies__slider-contain
 
 headerCreate(header)
 reloadPopup(document.querySelector('.popup'))
+createtoUpBtn(document.querySelector('.toUpBtnCont'))
 
 getData('/movie/popular')
     .then(res => {
@@ -77,8 +78,6 @@ let close_btns = document.querySelectorAll('[data-popup_close]')
 close_btns.forEach(el => el.onclick = () => modalToggle())
 sign_in.onclick = () => modalToggle(sign_in.dataset.popup)
 search_btn.onclick = () => modalToggle(search_btn.dataset.popup)
-
-
 
 
 function sliderAct(data, place, place_className) {

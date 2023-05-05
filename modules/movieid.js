@@ -1,4 +1,4 @@
-import { headerCreate } from "./ui";
+import { createtoUpBtn, headerCreate } from "./ui";
 import { getData } from "./http";
 let header = document.querySelector('header')
 let body = document.body
@@ -24,6 +24,7 @@ fav_icon.onclick = () => {
 }
 
 headerCreate(header)
+createtoUpBtn(document.querySelector('.toUpBtnCont'))
 
 getData('/movie/popular')
     .then(res => {
