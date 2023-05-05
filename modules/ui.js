@@ -25,8 +25,11 @@ export function headerCreate(place) {
 			</button>
 			<button data-popup="sign-in">Войти</button>
 		</div>
+		<div class="popup"></div>
     `
 }
+
+
 
 let genres
 

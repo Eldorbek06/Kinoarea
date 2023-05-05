@@ -3,9 +3,11 @@
     margin: 0px;
     box-sizing: border-box;
 }
+
 .liked {
     filter: invert(100%);
 }
+
 body {
     width: 100%;
     height: 80vh;
@@ -20,7 +22,7 @@ body {
         display: block;
         height: 100%;
         width: 100%;
-        background: linear-gradient(#1E2538, #1E253810, #1E2538,   #1E2538);
+        background: linear-gradient(#1E2538, #1E253810, #1E2538, #1E2538);
         position: absolute;
         bottom: 0px;
         z-index: -1;
@@ -40,6 +42,7 @@ body {
 }
 
 main {
+    max-width: 1920px;
     width: 90%;
     margin: 50px auto;
 }
@@ -644,6 +647,8 @@ main {
 
 footer {
     min-height: 50px;
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .slider-container {
