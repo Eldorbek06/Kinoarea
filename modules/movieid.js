@@ -24,8 +24,7 @@ fav_icon.onclick = () => {
     localStorage.setItem('fav_movies', JSON.stringify(fav_arr))
 }
 
-headerCreate(header)
-createtoUpBtn(document.querySelector('.toUpBtnCont'))
+headerCreate(header) c
 modalToggleActivate()
 
 

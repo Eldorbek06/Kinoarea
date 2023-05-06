@@ -35,6 +35,7 @@ export function createtoUpBtn(place) {
 	</button>
     `
 	document.querySelector('.toUpBtn').onclick = () => document.documentElement.scrollTop = 0
+	console.log(document.documentElement);
 }
 
 let genres
