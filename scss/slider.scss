@@ -1,56 +1,54 @@
-.slider {
-    .slider-container {
-        display: flex;
-        height: 520px;
-        width: 100%;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        transition: .3s;
+.slider-container {
+    display: flex;
+    height: 520px;
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    transition: .3s;
 
-        .movie-card {
-            min-width: 25%;
+    .movie-card {
+        min-width: 25%;
 
-            &:not(:first-child) {
-                padding-left: 20px;
-            }
-        }
-
-        &::-webkit-scrollbar {
-            display: none;
+        &:not(:first-child) {
+            padding-left: 20px;
         }
     }
 
-    .slider-btns {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        height: 45px;
+    &::-webkit-scrollbar {
+        display: none;
     }
+}
 
-    .slider-next {
-        rotate: 90deg;
-        height: 100%;
-        cursor: pointer;
-        transition: .2s;
+.slider-btns {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    height: 45px;
+}
 
-        &:hover {
-            scale: 1.2;
-        }
+.slider-next {
+    rotate: 90deg;
+    height: 100%;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+        scale: 1.2;
     }
+}
 
-    .slider-fraction {
-        font-weight: 500;
-        font-size: 20px;
-    }
+.slider-fraction {
+    font-weight: 500;
+    font-size: 20px;
+}
 
-    .slider-prev {
-        rotate: -90deg;
-        height: 100%;
-        cursor: pointer;
-        transition: .2s;
+.slider-prev {
+    rotate: -90deg;
+    height: 100%;
+    cursor: pointer;
+    transition: .2s;
 
-        &:hover {
-            scale: 1.2;
-        }
+    &:hover {
+        scale: 1.2;
     }
 }
