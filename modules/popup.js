@@ -1,26 +1,26 @@
 export function modalToggle(which) {
-    let popup = document.querySelector('.popup')
-    let inners = popup.querySelectorAll('.popup__inner')
-    if (popup.classList.contains('visible')) {
-        popup.classList.remove('visible')
-        popup.firstElementChild.classList.remove('visible')
+	let popup = document.querySelector('.popup')
+	let inners = popup.querySelectorAll('.popup__inner')
+	if (popup.classList.contains('visible')) {
+		popup.classList.remove('visible')
+		popup.firstElementChild.classList.remove('visible')
 		inners.forEach(el => el.classList.remove('visible'))
-    } else {
-        popup.classList.add('visible')
-        popup.firstElementChild.classList.add('visible')
-    }
+	} else {
+		popup.classList.add('visible')
+		popup.firstElementChild.classList.add('visible')
+	}
 
-    if (which) {
-        for (let item of inners) {
-            if (item.dataset.popup === which) {
-                item.classList.add('visible')
-            }
-        }
-    }
+	if (which) {
+		for (let item of inners) {
+			if (item.dataset.popup === which) {
+				item.classList.add('visible')
+			}
+		}
+	}
 }
 
 export function reloadPopup(place) {
-    place.innerHTML += `
+	place.innerHTML += `
 	<div class="popup__body">
 			<div class="popup__close-area" data-popup_close></div>
 			<div class="popup__content">
@@ -33,8 +33,10 @@ export function reloadPopup(place) {
 							<img class="popup__search-icon" src="/public/icons/search.svg" alt="icon">
 						</button>
 					</div>
+					<div class="popup__search-cont">
 					<div class="popup__search-wrapper popup__search-wrapper_movie"></div>
 					<div class="popup__search-wrapper popup__search-wrapper_person"></div>
+					</div>
                 </div>
 				<div class="popup__inner" data-popup="sign-in">
 					<img class="popup__close-btn" data-popup_close src="/public/icons/popup-close.svg" alt="icon">

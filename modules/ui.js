@@ -35,7 +35,6 @@ export function createtoUpBtn(place) {
 	</button>
     `
 	document.querySelector('.toUpBtn').onclick = () => document.documentElement.scrollTop = 0
-	console.log(document.documentElement);
 }
 
 let genres
@@ -44,21 +43,34 @@ getData('/genre/movie/list')
 	.then(({ data }) => genres = data.genres)
 
 export function reload(arr, place) {
-	place.innerHTML = ''
-	for (let item of arr) {
-		let genre_str = ''
-		for (let genre of genres) {
-			for (let id of item.genre_ids) {
-				if (id === genre.id) {
-					genre_str += ` ${genre.name},`
+	if (place) {
+		place.innerHTML = ''
+		for (let item of arr) {
+			let genre_str = ''
+			for (let genre of genres) {
+				for (let id of item.genre_ids) {
+					if (id === genre.id) {
+						genre_str += ` ${genre.name},`
+					}
 				}
 			}
-		}
-		if (place.classList.contains('popup__search-wrapper_movie')) {
-			place.innerHTML = `
-				<div class="popup__search-wrapper-title">Фильмы</div>
+			if (place.classList.contains('popup__search-wrapper_movie')) {
+				place.innerHTML += `
+				<a href="/pages/movieid.html?id=${item.id}">
+					<div class="movie-card">
+						<div class="image">
+							<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
+						</div>
+						<div class="name__genre">
+							<p>${item.title}</p>
+							<p>${genre_str}</p>
+						</div>
+						<span>${Math.round(item.vote_average)}</span>
+					</div>
+				</a>
 			`
-			place.innerHTML += `
+			} else if (place.classList.contains('popup__search-wrapper_person')) {
+				place.innerHTML += `
 				<a href="/pages/movieid.html?id=${item.id}">
 					<div class="movie-card">
 						<div class="image">
@@ -72,26 +84,8 @@ export function reload(arr, place) {
 					</div>
 				</a>
 			`
-		} else if (place.classList.contains('popup__search-wrapper_person')) {
-			place.innerHTML = `
-				<div class="popup__search-wrapper-title">Персоны</div>
-			`
-			place.innerHTML += `
-				<a href="/pages/movieid.html?id=${item.id}">
-					<div class="movie-card">
-						<div class="image">
-							<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
-						</div>
-						<div class="name__genre">
-							<p>${item.title}</p>
-							<p>${genre_str}</p>
-						</div>
-						<span>${item.vote_average}</span>
-					</div>
-				</a>
-			`
-		} else {
-			place.innerHTML += `
+			} else {
+				place.innerHTML += `
 				<div class="movie-card" >
 					<div class="image">
 						<img src="${import.meta.env.VITE_BASE_IMG + item.poster_path}" alt="image">
@@ -106,6 +100,7 @@ export function reload(arr, place) {
 					</div>
 				</div>
 			`
+			}
 		}
 	}
 }
@@ -126,10 +121,11 @@ export function reloadTrailerCart(arr, place) {
 }
 
 export function reloadPopularPerson(arr, place) {
-	place.innerHTML = ''
-	if (arr.length === 2) {
-		for (let item of arr) {
-			place.innerHTML += `
+	if (place) {
+		place.innerHTML = ''
+		if (arr.length === 2) {
+			for (let item of arr) {
+				place.innerHTML += `
 			<div class="popular-persons__box">
 				<img class="popular-persons__photo" src="${import.meta.env.VITE_BASE_IMG + item.profile_path}" alt="image">
 				<div class="popular-persons__num">${arr.indexOf(item) + 1}-е место</div>
@@ -140,10 +136,10 @@ export function reloadPopularPerson(arr, place) {
 				</div>
 			</div>
 			`
-		}
-	} else {
-		for (let item of arr) {
-			place.innerHTML += `
+			}
+		} else {
+			for (let item of arr) {
+				place.innerHTML += `
 				<div class="popular-persons__cart">
 					<div class="popular-persons__cart-item">
 						<div class="popular-persons__name">${item.name}</div>
@@ -153,6 +149,25 @@ export function reloadPopularPerson(arr, place) {
 					<div class="popular-persons__num">${arr.indexOf(item) + 3}-е место</div>
 				</div>
 			`
+			}
 		}
+	}
+}
+
+export function reloadActors(arr, place) {
+	place.innerHTML = ''
+	for (let item of arr) {
+		place.innerHTML += `
+			<div class="main-characters__item">
+				<div class="main-characters__image-box">
+					<img class="main-characters__image" src="${import.meta.env.VITE_BASE_IMG + item.profile_path}" alt="image">
+				</div>
+				<div class="main-characters__info">
+					<p class="main-characters__name">${item.name}</p>
+					<p class="main-characters__name_small">${item.name}</p>
+					<p class="main-characters__act-name">${item.original_name}</p>
+				</div>
+			</div>
+		`
 	}
 }

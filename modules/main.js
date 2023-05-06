@@ -1,6 +1,7 @@
-import { getData } from './http';
+import { getData, multiSearch } from './http';
 import { createtoUpBtn, headerCreate, reload, reloadPopularPerson, reloadTrailerCart } from "./ui";
 import { modalToggle, reloadPopup } from './popup'
+
 let body = document.body
 let header = document.querySelector('header')
 let movies_cont = document.querySelector('.movies')
@@ -13,6 +14,17 @@ let popular_moviesCont = document.querySelector('.popular-movies__slider-contain
 headerCreate(header)
 reloadPopup(document.querySelector('.popup'))
 createtoUpBtn(document.querySelector('.toUpBtnCont'))
+
+let searchBtn = document.querySelector('.popup__search-btn')
+searchBtn.onclick = () => {
+    let inp = document.querySelector('.popup__search-inp')
+    if (inp.value.length != 0) {
+        multiSearch(inp.value)
+            .then(({ data }) => {
+                reload(data.results, document.querySelector('.popup__search-wrapper_movie'))
+            })
+    }
+}
 
 getData('/movie/popular')
     .then(res => {

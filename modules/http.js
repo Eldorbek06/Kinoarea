@@ -9,3 +9,9 @@ export const getData = async (path) => {
 
     return res
 } 
+
+export const multiSearch = async (query = '') => {
+    const res = await axios.get(BASE_URL + "/search/multi?api_key=" + API_KEY + "&query=" + query)
+
+    return res
+} 

@@ -1,4 +1,4 @@
-import { createtoUpBtn, headerCreate } from "./ui";
+import { createtoUpBtn, headerCreate, reloadActors } from "./ui";
 import { getData } from "./http";
 import { modalToggleActivate } from "./main";
 let header = document.querySelector('header')
@@ -24,7 +24,7 @@ fav_icon.onclick = () => {
     localStorage.setItem('fav_movies', JSON.stringify(fav_arr))
 }
 
-headerCreate(header) c
+headerCreate(header)
 modalToggleActivate()
 
 
@@ -94,6 +94,9 @@ getData(`/movie/${movie_id}`)
                 reloadMovieCrews(composers, composer)
                 reloadMovieCrews(arts, art)
                 reloadMovieCrews(visual_effects, visual_effect)
+
+                let actorsCont = document.querySelector('.main-characters__main')
+                reloadActors(data.crew.slice(0, 10), actorsCont)
             })
 
         rating.lastElementChild.style.width = `${rating_view}%`
